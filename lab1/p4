@@ -1,0 +1,15 @@
+%{
+#include<stdio.h>
+int npos=0,nneg=0,nposf=0,nnegf=0;
+%}
+digit [0-9]
+%%
+{digit}+ {npos++;printf("positive\n");}
+\-{digit}+ printf("negative\n");
+{digit}+\.{digit}+(\E\-?{digit}+)? printf("pos frac\n");
+\-{digit}+\.{digit}+ printf("neg frac\n");
+%%
+void main()
+{
+ yylex();
+}
