@@ -1,0 +1,14 @@
+%{
+#include<stdio.h>
+%}
+digit [0-9]
+even 0|2|4|6|8
+odd 1|3|5|7|9
+%%
+{digit}*{even} printf("even\n");
+{digit}*{odd}  printf("odd\n");
+%%
+void main()
+{
+ yylex();
+}
